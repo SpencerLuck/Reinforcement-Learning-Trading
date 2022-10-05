@@ -9,7 +9,6 @@ COST = 0.0007
 CAPITAL = 100_000
 NEG_MUL = 2
 warnings.filterwarnings('ignore')
-# Obs space = 59
 
 class DataLoader:
     """
