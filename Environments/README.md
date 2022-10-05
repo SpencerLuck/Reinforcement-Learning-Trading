@@ -1,0 +1,3 @@
+# Environments
+
+Reinforcement learning environments are virtual environments created to either simulate the real world or replicate the environment in which the agent will be operating in and maximizing their reward. Two environments are presented here. A cryptocurrency perpetual futures environment where an agent purchases a perpetual futures contract giving the agent the ability to take long and short positions on the underlying currency. A cryptocurrency spot environment where an agent purchases the underlying coin giving it the ability to only take long positions (buying) and liquidating positions (selling). This makes the spot environment relatively simpler than the perpetual futures environment.
