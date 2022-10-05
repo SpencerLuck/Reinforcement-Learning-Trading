@@ -1,21 +1,21 @@
 import numpy as np
 from DDQN_trade import Agent
-from LongShortPerpEnv import DataLoader, TradingEnv
+from SpotEnv import DataLoader, TradingEnv
 import warnings
 import matplotlib.pyplot as plt
 import os
 
 
-DATA_PATH = 'C:\\Users\\spenc\\Desktop\\Prop trading firm\\Neural networks\\Crypto data\\ETHPERP_1hr_rates.csv'
+DATA_PATH = 'ETHPERP_1hr.csv'  # data with future rates as a column
 MODEL_NUM = 9
 PAIR = 'ETHUSD'
-MODEL_PATH = f'C:\\Users\\spenc\\Desktop\\Prop trading firm\\Reinforcement learning\\ReinforcementLearning\\models\\dqn\\model_{MODEL_NUM}_{PAIR}'
+MODEL_PATH = f'\\ReinforcementLearning\\models\\dqn\\model_{MODEL_NUM}_{PAIR}'
 
 
 if not os.path.isdir(MODEL_PATH):
     mode = 0o666
     model_folder = f'model_{MODEL_NUM}_{PAIR}'
-    m_path = os.path.join('C:\\Users\\spenc\\Desktop\\Prop trading firm\\Reinforcement learning\\ReinforcementLearning\\models\\dqn', model_folder)
+    m_path = os.path.join('\\ReinforcementLearning\\models\\dqn', model_folder)
     os.makedirs(m_path, mode)
 
 
@@ -118,18 +118,3 @@ if __name__ == '__main__':
             plot(train_scores=scores, val_scores=val_scores,
                  episode=i, model_num=MODEL_NUM, show=False)
 
-''''
-Model 7 ETHUSD: LongShortEnv. New tech indicators, with NN10, NN12
-
-Model 8 ETHUSD: LongShortEnv. Tech indicators, NN10, NN12 and with new reward function. No Neural networks.
-                Batch size = 256, replace = 1000. Fixed ep len of 2000
-                reward = 100 * self.next_return * self.pos_type - self.pos_type * self.next_funding_rate
-
-Model 9 ETHUSD: Same as above with 24 hour lookback
-
-New reward function, with equity and capital returns instead.
-Weight the ending capital value
-Add consideration for capital when trades are exited.
-Attempt drawdown or Sharpe.
-Change negative multiple.
-'''
