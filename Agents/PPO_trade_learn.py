@@ -1,21 +1,20 @@
 from PPO_torch_trade import Agent
 from PerpEnv import DataLoader, TradingEnv
 import warnings
-import gym
 import numpy as np
 import os
 import matplotlib.pyplot as plt
 
-DATA_PATH = 'C:\\Users\\spenc\\Desktop\\Prop trading firm\\Neural networks\\Crypto data\\ETHPERP_1hr_rates.csv'
+DATA_PATH = 'ETHPERP_1hr.csv'  # Crypto data with funding rates as column
 MODEL_NUM = 1
 PAIR = 'ETHPERP'
-MODEL_PATH = f'C:\\Users\\spenc\\Desktop\\Prop trading firm\\Reinforcement learning 2\\models\\ppo_torch\\model_{MODEL_NUM}_{PAIR}'
+MODEL_PATH = f'models\\ppo_torch\\model_{MODEL_NUM}_{PAIR}'
 
 
 if not os.path.isdir(MODEL_PATH):
     mode = 0o666
     model_folder = f'model_{MODEL_NUM}_{PAIR}'
-    m_path = os.path.join('C:\\Users\\spenc\\Desktop\\Prop trading firm\\Reinforcement learning 2\\models\\ppo_torch', model_folder)
+    m_path = os.path.join('models\\ppo_torch', model_folder)
     os.makedirs(m_path, mode)
 
 
